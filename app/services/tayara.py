@@ -1,4 +1,5 @@
 import requests
+from app.models.cleanText import clean
 
 class Tayara:
     def __init__(self,query,page,category):
@@ -26,7 +27,7 @@ class Tayara:
                 result = [{
                     "id": ad.get("id"),
                     "title": ad.get("title"),
-                    "description": ad.get("description"),
+                    "description": clean(ad.get("description")).clean_text(),
                     "images": ad.get("images", []),
                     "price": ad.get("price"),
                     "publisher_name": ad.get("metadata", {}).get("publisher", {}).get("name"),
@@ -51,3 +52,4 @@ class Tayara:
 
             }for ad in ads]
         return result
+    
