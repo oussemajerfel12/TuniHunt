@@ -35,6 +35,7 @@ class Tayara:
                     "id": ad.get("id"),
                     "title": ad.get("title"),
                     "description": clean(ad.get("description")).clean_text(),
+                    "Phone_number": clean(ad.get("description")).extend_Numero() or "",
                     "images": ad.get("images", []),
                     "price": ad.get("price"),
                     "publisher_name": ad.get("metadata", {}).get("publisher", {}).get("name"),
@@ -50,7 +51,8 @@ class Tayara:
             ads = data.get("pageProps", {}).get("searchedListingsAction", {}).get("newHits", [])
             result = [{
                 "title":ad.get("title"),
-                "description": ad.get("description"),
+                "description": clean(ad.get("description")).clean_text(),
+                "Phone_number": clean(ad.get("description")).extend_Numero() or "",
                 "images": ad.get("images", []),
                 "price": ad.get("price"),
                 "publisher_name": ad.get("metadata", {}).get("publisher", {}).get("name"),
@@ -66,6 +68,7 @@ class Tayara:
             export_data.append({
                 "Title": res["title"],
                 "Description": res["description"],
+                "Phone":res["Phone_number"],
                 "Price": res["price"],
                 "Publisher": res["publisher_name"],
                 "Governorate": res["governorate"],

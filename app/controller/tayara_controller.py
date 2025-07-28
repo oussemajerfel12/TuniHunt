@@ -9,7 +9,7 @@ router = APIRouter(prefix="/tayara", tags=["Tayara"])
 @router.post("/description")
 def get_descriptions(params: SearchParams):
     scraper = Tayara(query=params.query, category=params.category, page=params.page)
-    descriptions = scraper.get_description(max_page=5)
+    descriptions = scraper.get_description(max_page=1)
     return {"descriptions": descriptions}
 
 @router.post("/search")
