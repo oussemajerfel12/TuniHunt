@@ -96,3 +96,5 @@ This project is licensed under the MIT License.
 ## 🙋 Contact
 
 Feel free to reach out via [LinkedIn](https://www.linkedin.com/in/oussema-jerfel) or open an issue for suggestions or improvements.
+
+![alt text](image.png)
